@@ -1,5 +1,5 @@
-import "./style.css"
-import { timerDigital } from "./timerdigital"
+import "./scss/styles.scss"
+import { timerDigital } from "./components/timerdigital/timerdigital"
 
 timerDigital()
 
