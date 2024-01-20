@@ -9,10 +9,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
+    "@types/node": "^20.11.5",
+    "sass": "^1.70.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
   },
   "dependencies": {
-    "sass": "^1.70.0"
+    "easytimer.js": "^4.6.0"
   }
 }

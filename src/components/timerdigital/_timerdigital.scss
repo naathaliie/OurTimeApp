@@ -1,0 +1,56 @@
+#timer-digital-section {
+  font-family: $font-style-primary;
+  background-color: $color-background-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  #timer-digital-header {
+    position: relative;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    div:first-child {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      left: -32px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    div:last-child {
+      width: 272px;
+      h1 {
+        text-align: center;
+        width: 279px;
+        color: $color-text-primary;
+        font-weight: 400;
+        font-size: 20px;
+      }
+    }
+  }
+  #timer-digital-numbers {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 103.52px;
+    letter-spacing: 10%;
+    color: $color-text-primary;
+  }
+  .abort-button {
+    color: $color-text-primary;
+    background-color: $color-background-primary;
+    width: 132px;
+    height: 41px;
+    border: 1px solid $color-text-primary;
+    border-radius: 5px;
+    margin-bottom: 60px;
+    padding: 10px;
+    gap: 10px;
+    opacity: 60%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
