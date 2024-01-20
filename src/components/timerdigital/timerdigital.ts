@@ -2,7 +2,6 @@ import Timer from "easytimer.js";
 
 export function timerDigital() {
   let timer: Timer = new Timer();
-
   const app: HTMLDivElement =
     document.querySelector<HTMLDivElement>(".allInfo")!;
   app.innerHTML = `<section id="timer-digital-section"></section>`;
@@ -37,7 +36,6 @@ export function timerDigital() {
       });
     }
   });
-
   timer.start();
 
   return function stop() {

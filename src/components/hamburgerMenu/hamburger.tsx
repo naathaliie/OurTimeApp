@@ -1,4 +1,4 @@
-import { timerDigital } from '../timerDigital/timerdigital';
+import { timerDigital } from '../timerdigital/timerdigital';
 import { setTimer } from '../set-timer/setTimer';
 
 
