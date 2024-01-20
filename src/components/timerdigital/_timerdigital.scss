@@ -7,7 +7,8 @@
 #timer-digital-section {
   width: 100vw;
   height: 100vh;
-  background-color: #eeeeee;
+  font-family: $font-style-primary;
+  background-color: $color-background-primary;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,7 +33,7 @@
       h1 {
         text-align: center;
         width: 279px;
-        color: #222222;
+        color: $color-text-primary;
         font-weight: 400;
         font-size: 20px;
       }
@@ -43,14 +44,14 @@
     font-weight: 700;
     line-height: 103.52px;
     letter-spacing: 10%;
-    color: #222222;
+    color: $color-text-primary;
   }
   .abort-button {
-    color: #222222;
-    background-color: #ffffff;
+    color: $color-text-primary;
+    background-color: $color-background-primary;
     width: 132px;
     height: 41px;
-    border: 1px solid #222222;
+    border: 1px solid $color-text-primary;
     border-radius: 5px;
     margin-bottom: 60px;
     padding: 10px;
@@ -58,7 +59,6 @@
     opacity: 60%;
     &:hover {
       cursor: pointer;
-      background-color: #baa6a6;
     }
   }
 }
