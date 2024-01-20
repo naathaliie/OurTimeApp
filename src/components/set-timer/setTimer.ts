@@ -1,10 +1,11 @@
 import Timer from "easytimer.js";
 
-export function setupTimer() {
+export function setTimer() {
   if (document.getElementById("chronoExample")) {
     // If it does, return early to prevent the rest of the code from executing
     return;
   }
+
   let timer = new Timer();
 
   // Create the HTML elements
@@ -122,14 +123,14 @@ export function setupTimer() {
     });
 
   // Update the timer display
-  timer.addEventListener("secondsUpdated", function (e) {
+  timer.addEventListener("secondsUpdated", function () {
     document.querySelector("#chronoExample .values")!.innerHTML = timer
       .getTimeValues()
       .toString();
   });
 
   // Play a video when the timer runs out
-  timer.addEventListener("targetAchieved", function (e) {
+  timer.addEventListener("targetAchieved", function () {
     let iframe = document.createElement("iframe");
     iframe.src = "https://www.youtube.com/embed/rUkzZTGE6jI?autoplay=1";
     iframe.allow = "autoplay";
@@ -154,6 +155,12 @@ export function setupTimer() {
       startStopButton.textContent = "Reset Timer";
     }
 
-    allInfo.appendChild(iframe);
+    chronoExample.appendChild(iframe);
   });
+
+  return function stop() {
+    timer.stop();
+
+    chronoExample.remove();
+  };
 }

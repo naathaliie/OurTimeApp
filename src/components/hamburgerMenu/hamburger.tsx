@@ -1,5 +1,5 @@
 import { timerDigital } from '../timerDigital/timerdigital';
-import { setupTimer } from '../set-timer/setTimer';
+import { setTimer } from '../set-timer/setTimer';
 
 
 
@@ -46,11 +46,29 @@ hamburgerButton.addEventListener('click', () => {
 });
 
 
-document.getElementById('link-timerDigital')?.addEventListener('click', (event) => {
-  event.preventDefault();
-  timerDigital();
-});
+
+let stopTimer: any;
+
 document.getElementById('link-setTimer')?.addEventListener('click', (event) => {
   event.preventDefault();
-  setupTimer();
+
+  // Stop the previous timer if it's running
+  if (stopTimer) {
+    stopTimer();
+  }
+
+  // Start a new timer
+  stopTimer = setTimer();
+});
+
+document.getElementById('link-timerDigital')?.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Stop the previous timer if it's running
+  if (stopTimer) {
+    stopTimer();
+  }
+
+  // Start a new timer
+  stopTimer = timerDigital();
 });
