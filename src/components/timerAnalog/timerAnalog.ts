@@ -10,11 +10,19 @@ export function analogWatch() {
     // Starts the timer when page is loaded.
     timer.start();
 
-    //Create all the HTML-elements for the watch -> Collect the div with id "allinfo" from index.html, create a nev div "watchDiv", add a class to it "watch" and then append the watchDiv as a child to "allInfo".
+    /* Create all the HTML-elements for the watch -> Collect the div with id "allinfo" from index.html. 
+    Create a wrapper to make it responsiv?. 
+    Create a nev div "watchWrapper", add a class to it "watchWrapper" 
+    and then append the watchWrapper as a child to "allInfo". */
     const appDiv : HTMLElement | null = document.querySelector(".allInfo");
+    const watchWrapper : HTMLElement = document.createElement("div");
+    watchWrapper.classList.add("watchWrapper");
+    appDiv?.appendChild(watchWrapper);
+    
+    //Create a new div for the watch "watchDiv".
     const watchDiv : HTMLDivElement = document.createElement("div");
     watchDiv.classList.add("watch");
-    appDiv?.appendChild(watchDiv);
+    watchWrapper.appendChild(watchDiv);
 
     //Create the minute-hand and the second-hand. Add class and append as child to the watchDiv created above.
     const minuteDiv : HTMLDivElement = document.createElement("div");

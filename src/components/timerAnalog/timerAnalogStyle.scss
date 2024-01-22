@@ -6,7 +6,9 @@
     margin: 0;
     box-sizing: border-box;
 } 
-
+.watchWrapper{
+    display: flex;
+   justify-content: center;
 
     .watch{
         width: 40em;
@@ -64,6 +66,7 @@
             }
         
     }
+}
 
 
 
