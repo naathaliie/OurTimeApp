@@ -1,0 +1,73 @@
+//normalisera
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+
+    .watch{
+        width: 40em;
+        height: 40em;
+        background-color: rgba(187, 121, 154, 0.793);
+        border-radius: 50%;
+        border: 4px solid rgb(196, 35, 185);
+        position: relative;//Behövs för att kunna sätta position absolute.
+        
+        .secondLines{ 
+        /*Ett element med position: absolut; är placerad 
+        i förhållande till närmaste positionerade förfader.
+        Gör att allt "klumpar ihop sig"*/            
+        position: absolute;  
+        /* Sätt width och height för att förenkla att placera siffrorna
+        i en cirkel runt klockan. Bakgrundsfärgen kan du ta bort, den är endast för att se
+        hur "stor" plats du har */  
+        width: 100%;
+        height: 100%;
+       /* background-color: hotpink; */
+        text-align: center;//Centrerar texten
+        
+    }
+
+    .watch::after{
+        content: '';
+        position: absolute;
+        background-color: hotpink;
+        z-index: 11;
+        width: 150px;
+        height: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+        
+
+        .hand{
+            position: absolute;//För att placera "ovanpå" klockan och inte jämnsiders med siffrorna så att de "puttas" ner
+            background-color: rgba(17, 17, 17, 0.36);
+            bottom:50%;
+            left: 50%;
+            transform: translateX(-50%);//För att centreringen skall bli "100%" Transform:translate med -50% gör att du "backar" 50% av det du justerat
+            transform-origin: bottom;//Bestämmer vartifrån rotationen utgår ifrån, default är i mitten men detta gör att det blir från bottom
+            transform: rotate(28deg);//Gör att visaren roterar
+
+            }
+            .minute{
+                width: 4%;
+                height: 30%;
+                transform: rotate(68deg);//Gör att visaren roterar
+                height: 30% ;
+            }
+            
+            .second{
+                width: 4%;
+                height: 45%;
+            }
+        
+    }
+
+
+
+   

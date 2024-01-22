@@ -1,5 +1,6 @@
 import { timerDigital } from '../timerdigital/timerdigital';
 import { setTimer } from '../set-timer/setTimer';
+import { analogWatch } from '../timerAnalog/timerAnalog';
 
 
 
@@ -15,6 +16,10 @@ const myLinks: Link[] = [{
 {
   id: 'setTimer',
   text: 'Set Timer',
+},
+{
+  id: 'analogWatch',
+  text: 'Analog timer',
 }
 ]
 
@@ -71,4 +76,15 @@ document.getElementById('link-timerDigital')?.addEventListener('click', (event) 
 
   // Start a new timer
   stopTimer = timerDigital();
+});
+document.getElementById('link-analogWatch')?.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Stop the previous timer if it's running
+  if (stopTimer) {
+    stopTimer();
+  }
+
+  // Start a new timer
+  stopTimer = analogWatch();
 });
