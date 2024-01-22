@@ -8,7 +8,7 @@ export interface CountdownTime {
 }
 
 export function setTimer() {
-  if (document.getElementById("chronoExample")) {
+  if (document.getElementById("setTimerWrapper")) {
     return;
   }
 
@@ -21,21 +21,21 @@ export function setTimer() {
   };
 
   // Create the HTML elements
-  let chronoExample = document.createElement("div");
-  chronoExample.id = "chronoExample";
+  let setTimerWrapper = document.createElement("div");
+  setTimerWrapper.id = "setTimerWrapper";
 
   let displayTimer = createTimer(timer, countdownTime);
-  chronoExample.appendChild(displayTimer);
+  setTimerWrapper.appendChild(displayTimer);
 
   let { checkBoxInterval, checkBoxSleep, checkBoxContainer } =
     createCheckboxes();
-  chronoExample.appendChild(checkBoxContainer);
+  setTimerWrapper.appendChild(checkBoxContainer);
 
   let startStopButton = createStartButton(timer, countdownTime);
-  chronoExample.appendChild(startStopButton);
+  setTimerWrapper.appendChild(startStopButton);
 
   let allInfo = document.querySelector(".allInfo")!;
-  allInfo.appendChild(chronoExample);
+  allInfo.appendChild(setTimerWrapper);
 
   timer.addEventListener("targetAchieved", function () {
     let iframe = document.createElement("iframe");
@@ -62,12 +62,12 @@ export function setTimer() {
       startStopButton.textContent = "Reset Timer";
     }
 
-    chronoExample.appendChild(iframe);
+    setTimerWrapper.appendChild(iframe);
   });
 
   return function stop() {
     timer.stop();
 
-    chronoExample.remove();
+    setTimerWrapper.remove();
   };
 }
