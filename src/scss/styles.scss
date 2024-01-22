@@ -3,6 +3,7 @@
 @import "../components/timerdigital/timerdigital";
 @import "../components/hamburgerMenu/hamburger.scss";
 @import "../components/set-timer/setTimer.scss";
+@import "../components/alarmview/alarmview.scss";
 
 body {
   display: grid;
@@ -39,11 +40,13 @@ body {
     padding: 0;
     height: 100%;
   }
+
   .mainBox {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .allInfo {
     display: flex;
     justify-content: center;

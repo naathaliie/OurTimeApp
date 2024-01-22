@@ -1,6 +1,6 @@
-function timesUp() {
+export function timesUp() {
     const app: HTMLDivElement | null = document.querySelector(".allInfo");
-    
+
     const alarmView = document.createElement("div");
     alarmView.setAttribute('class', 'alarm-view');
     app?.appendChild(alarmView);
@@ -11,7 +11,7 @@ function timesUp() {
     alarmView.appendChild(clockContainer);
 
     const clockLogo: HTMLImageElement = document.createElement("img");
-    clockLogo.src = "./img/clock.svg";
+    clockLogo.src = "../components/alarview/img/alarm.svg";
     clockLogo.setAttribute("class", "clock-logo");
     clockContainer.appendChild(clockLogo);
 
@@ -30,7 +30,3 @@ function timesUp() {
         // återgå till setTimer här
     });
 };
-
-
-
-timesUp();
