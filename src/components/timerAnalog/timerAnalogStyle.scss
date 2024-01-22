@@ -1,4 +1,4 @@
-//normalisera
+//normalize
 *,
 *::after,
 *::before{
@@ -6,63 +6,67 @@
     margin: 0;
     box-sizing: border-box;
 } 
+
+//Dont know if i need this wrapper...
 .watchWrapper{
-    display: flex;
-   justify-content: center;
+ 
 
     .watch{
         width: 40em;
         height: 40em;
-        background-color: rgba(187, 121, 154, 0.793);
+        background-color: rgb(34, 33, 33);
         border-radius: 50%;
-        border: 4px solid rgb(196, 35, 185);
-        position: relative;//Behövs för att kunna sätta position absolute.
+        border: 4px solid rgb(116, 116, 116);
+        position: relative;//Is needed to set the position:absolut on .secondLines.
         
         .secondLines{ 
-        /*Ett element med position: absolut; är placerad 
-        i förhållande till närmaste positionerade förfader.
-        Gör att allt "klumpar ihop sig"*/            
+        /* An element with position: absolute; is positioned relative to its nearest positioned ancestor.
+        Makes every secondLine group togehter */           
         position: absolute;  
-        /* Sätt width och height för att förenkla att placera siffrorna
-        i en cirkel runt klockan. Bakgrundsfärgen kan du ta bort, den är endast för att se
-        hur "stor" plats du har */  
+        /* Set the width and height to simplify placing the numbers in a circle around the clock.
+        You can remove the background color; it is only for visualizing the available space. */  
         width: 100%;
         height: 100%;
        /* background-color: hotpink; */
-        text-align: center;//Centrerar texten
+        text-align: center;//Centers the text (| is a string so it counts as text)
+        color: white;
         
     }
 
-    .watch::after{
-        content: '';
+    .handPatch{
+        
         position: absolute;
-        background-color: hotpink;
+        background-color: rgb(124, 115, 121);
         z-index: 11;
-        width: 150px;
-        height: 15px;
+        width: 10%;
+        height: 10%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        border-radius: 50%;
     }
         
 
         .hand{
-            position: absolute;//För att placera "ovanpå" klockan och inte jämnsiders med siffrorna så att de "puttas" ner
-            background-color: rgba(17, 17, 17, 0.36);
+            position: absolute;//Is needed to place tha hand above the watch, the default would be beside the whole watch-element and the secondLines would be "pushed" down.
+            background-color: rgba(243, 236, 236, 0.36);
             bottom:50%;
             left: 50%;
-            transform: translateX(-50%);//För att centreringen skall bli "100%" Transform:translate med -50% gör att du "backar" 50% av det du justerat
-            transform-origin: bottom;//Bestämmer vartifrån rotationen utgår ifrån, default är i mitten men detta gör att det blir från bottom
+            transform: translate(-50%);//For the centering to be "100%", Transform: translate with -50% makes you "move back" 50% of what you've adjusted with the left: 50%.
+            transform-origin: bottom;//Decides the origin point for rotation; the default is the center, but this makes it from the bottom.
 
             }
             .minute{
-                width: 4%;
+                width: 3%;
                 height: 30%;
+                border-radius: 30px 30px 0px 0px;
             }
             
             .second{
-                width: 4%;
+                width: 3%;
                 height: 45%;
+                border-radius: 30px 30px 0px 0px;
+
             }
         
     }

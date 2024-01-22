@@ -33,6 +33,11 @@ export function analogWatch() {
     secondDiv.classList.add("hand", "second");
     watchDiv.appendChild(secondDiv);
 
+    //Create a patch to cover up the ends of the hands
+    const handPatch : HTMLDivElement= document.createElement("div");
+    handPatch.classList.add("handPatch");
+    watchDiv.appendChild(handPatch);
+
    /*Create the lines for each second on the watch. If we create them all with a loop, we can name the div-element we want to create one time. It´s also much less code to write:)
    Fisrt create a new div "secondLine", add a line as the innerHTML, add two classes "secondLines" and "secondLine(it´s own number)",
    append as a child to the watchDiv and add it´s rotation style (increses with every loop). So they all line upp correctly.
@@ -48,7 +53,7 @@ export function analogWatch() {
         if (i == 10 || i == 20 || i == 30|| i == 40|| i == 50|| i == 60) {
             secondLine.style.fontSize = `2em`;
             secondLine.style.fontWeight = `bold`;
-        }
+            secondLine.style.color = `pink`;        }
     }
 
      
