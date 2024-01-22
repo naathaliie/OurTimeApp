@@ -51,14 +51,11 @@
             left: 50%;
             transform: translateX(-50%);//För att centreringen skall bli "100%" Transform:translate med -50% gör att du "backar" 50% av det du justerat
             transform-origin: bottom;//Bestämmer vartifrån rotationen utgår ifrån, default är i mitten men detta gör att det blir från bottom
-            transform: rotate(28deg);//Gör att visaren roterar
 
             }
             .minute{
                 width: 4%;
                 height: 30%;
-                transform: rotate(68deg);//Gör att visaren roterar
-                height: 30% ;
             }
             
             .second{
