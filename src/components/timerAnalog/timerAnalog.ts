@@ -1,10 +1,14 @@
 //Imports the easytimer so we can use it
 import Timer from "easytimer.js";
+import { countdownTime } from "../set-timer/setTimer";
 
 //export is needed so you can export the function to main.ts
 export function analogWatch() {
   //A new instance of Timer
-  let timer: Timer = new Timer();
+  let timer: Timer = new Timer({
+    countdown: true,
+    startValues: { seconds: countdownTime.seconds },
+  });
 
   // Starts the timer when page is loaded.
   timer.start();

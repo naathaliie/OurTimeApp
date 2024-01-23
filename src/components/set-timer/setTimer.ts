@@ -8,6 +8,11 @@ export interface CountdownTime {
   setTime: number;
 }
 
+export const countdownTime: CountdownTime = {
+  seconds: 30,
+  setTime: 30,
+};
+
 export function setTimer() {
   if (document.getElementById("setTimerWrapper")) {
     return;
@@ -16,10 +21,6 @@ export function setTimer() {
   let timer = new Timer();
 
   // Initialize the countdown time
-  let countdownTime: CountdownTime = {
-    seconds: 30,
-    setTime: 30,
-  };
 
   // Create the HTML elements
   let setTimerWrapper = document.createElement("div");
