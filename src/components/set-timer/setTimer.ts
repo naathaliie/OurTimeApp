@@ -2,6 +2,7 @@ import Timer from "easytimer.js";
 import { createStartButton } from "./StartStopButton";
 import { createTimer } from "./displayTimer";
 import { createCheckboxes } from "./checkboxes";
+import { timesUp } from "../alarmview/alarmview";
 export interface CountdownTime {
   seconds: number;
   setTime: number;
@@ -38,9 +39,11 @@ export function setTimer() {
   allInfo.appendChild(setTimerWrapper);
 
   timer.addEventListener("targetAchieved", function () {
-    let iframe = document.createElement("iframe");
-    iframe.src = "https://www.youtube.com/embed/rUkzZTGE6jI?autoplay=1";
-    iframe.allow = "autoplay";
+    timesUp();
+    // let iframe = document.createElement("iframe");
+    // iframe.src = "https://www.youtube.com/embed/rUkzZTGE6jI?autoplay=1";
+    // iframe.allow = "autoplay";
+
     countdownTime.seconds = countdownTime.setTime;
 
     if (checkBoxInterval.checked == true || checkBoxSleep.checked == true) {
@@ -62,7 +65,7 @@ export function setTimer() {
       startStopButton.textContent = "Reset Timer";
     }
 
-    setTimerWrapper.appendChild(iframe);
+    // setTimerWrapper.appendChild(iframe);
   });
 
   return function stop() {

@@ -1,0 +1,44 @@
+@mixin centerEl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin centerCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alarm-view {
+    @include centerCol();
+
+    .clock-container {
+        @include centerEl();
+        background-color: $alarm-ellipse-1;
+        width: 9rem;
+        height: 9rem;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1.6rem $alarm-ellipse-2, 0 0 0 3.5rem $alarm-ellipse-3-4, 0 0 0 6rem $alarm-ellipse-3-4;
+    }
+
+    .clock-text{
+        font-size: 2.5rem;
+        color: rgb(0, 0, 0);
+    }
+    .new-timer{
+        color: #ffffff6c;
+        margin-top: 3rem;
+        border-radius: 0.3125rem;
+        background-color: transparent;
+        border: 1px solid #ffffff6c;
+        padding: 0.625rem;
+
+        &:hover{
+            background-color: black;
+            color: rgb(255, 255, 255);
+            border: 1px solid black;
+        }
+    }
+}
