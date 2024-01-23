@@ -6,8 +6,8 @@ import { countdownTime } from "../set-timer/setTimer";
 export function analogWatch() {
   //A new instance of Timer
   let timer: Timer = new Timer({
-    countdown: true,
-    startValues: { seconds: countdownTime.seconds },
+    countdown: false,
+    target: { seconds: countdownTime.seconds },
   });
 
   // Starts the timer when page is loaded.

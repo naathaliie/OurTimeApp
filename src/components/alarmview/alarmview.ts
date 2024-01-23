@@ -28,9 +28,4 @@ export function timesUp() {
     console.log("knappen trycktes");
     // återgå till setTimer här
   });
-  return function stop() {
-    timer.stop();
-
-    alarmView.remove();
-  };
 }
