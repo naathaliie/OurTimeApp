@@ -1,22 +1,29 @@
+//Imports the easytimer so we can use it
 import Timer from "easytimer.js";
 
-//Exxport för att kunna expnportera från min ts till main.ts. Void= funktionen skall inte returnera något.
+//export is needed so you can export the function to main.ts
 export function analogWatch() {
+  //A new instance of Timer
   let timer: Timer = new Timer();
-  console.log(timer);
 
-  //Hämta divven med id = app från index.html för att sedan kunna skapa nya html-element till den analoga klockan
+  // Starts the timer when page is loaded.
+  timer.start();
+
+  /* Create all the HTML-elements for the watch -> Collect the div with id "allinfo" from index.html. 
+    Create a wrapper to make it responsiv?. 
+    Create a nev div "watchWrapper", add a class to it "watchWrapper" 
+    and then append the watchWrapper as a child to "allInfo". */
   const appDiv: HTMLElement | null = document.querySelector(".allInfo");
-  //Skapar en ny div
+  const watchWrapper: HTMLElement = document.createElement("div");
+  watchWrapper.classList.add("watchWrapper");
+  appDiv?.appendChild(watchWrapper);
+
+  //Create a new div for the watch "watchDiv".
   const watchDiv: HTMLDivElement = document.createElement("div");
-  //Lägger till en klass till watchDiv
   watchDiv.classList.add("watch");
-  //lägger in watchDiv i divven app
-  appDiv?.appendChild(watchDiv);
+  watchWrapper.appendChild(watchDiv);
 
-  //Lägger till alla divvar med klockvisare samt siffror till watch
-
-  //Alla hand-divvar
+  //Create the minute-hand and the second-hand. Add class and append as child to the watchDiv created above.
   const minuteDiv: HTMLDivElement = document.createElement("div");
   minuteDiv.classList.add("hand", "minute");
   watchDiv.appendChild(minuteDiv);
@@ -25,8 +32,15 @@ export function analogWatch() {
   secondDiv.classList.add("hand", "second");
   watchDiv.appendChild(secondDiv);
 
-  //Alla sekundstreck i en loop. Gör även att du kan döpa alla divar till samma namn, det hade inte gått om du skapade dem  var för sig utan loopen
+  //Create a patch to cover up the ends of the hands
+  const handPatch: HTMLDivElement = document.createElement("div");
+  handPatch.classList.add("handPatch");
+  watchDiv.appendChild(handPatch);
 
+  /*Create the lines for each second on the watch. If we create them all with a loop, we can name the div-element we want to create one time. It´s also much less code to write:)
+   Fisrt create a new div "secondLine", add a line as the innerHTML, add two classes "secondLines" and "secondLine(it´s own number)",
+   append as a child to the watchDiv and add it´s rotation style (increses with every loop). So they all line upp correctly.
+   Also we want to make every 10 secondLine bigger and more bold, therfore we have the if-statement*/
   for (let i = 1; i < 61; i++) {
     const secondLine: HTMLDivElement = document.createElement("div");
     secondLine.innerHTML = "|";
@@ -38,8 +52,29 @@ export function analogWatch() {
     if (i == 10 || i == 20 || i == 30 || i == 40 || i == 50 || i == 60) {
       secondLine.style.fontSize = `2em`;
       secondLine.style.fontWeight = `bold`;
+      secondLine.style.color = `pink`;
     }
   }
+
+  // Makes the second-hand (secondDiv) move every second
+  timer.addEventListener("secondsUpdated", function () {
+    const time = timer.getTimeValues();
+    const seconds = time.seconds;
+
+    //Hämta divven med id = app från index.html för att sedan kunna skapa nya html-element till den analoga klockan
+
+    //Every second the hand will rotate
+    secondDiv.style.transform = `rotate(${6 * seconds}deg)`;
+  });
+
+  // Makes the minute-hand (minuteDiv) move every second
+  timer.addEventListener("minutesUpdated", function () {
+    const time = timer.getTimeValues();
+    const minutes = time.minutes;
+
+    //Every minute the hand will rotate
+    minuteDiv.style.transform = `rotate(${6 * minutes}deg)`;
+  });
 
   return function stop() {
     timer.stop();
@@ -47,8 +82,3 @@ export function analogWatch() {
     watchDiv!.remove();
   };
 }
-
-/************************************************************/
-
-//Funktion för att klockan skall fungera
-export function setTime(): void {}
