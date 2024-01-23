@@ -1,11 +1,19 @@
 //Imports the easytimer so we can use it
-import Timer from "easytimer.js"
- 
+import Timer from "easytimer.js";
+//Imports everything from setTimer
+import { setTimer } from "../set-timer/setTimer"; 
+
+
+
 
 //export is needed so you can export the function to main.ts
-export function analogWatch() {
+export function analogWatch(input:Number) {
     //A new instance of Timer
     let timer : Timer = new Timer();
+    
+    /*Collects the function setTimer from setTimer.js.
+    We need this to get the set value of the timer to the analog watch.*/
+   /*  setTimer()  */
 
     // Starts the timer when page is loaded.
     timer.start();
@@ -60,7 +68,7 @@ export function analogWatch() {
 
      // Makes the second-hand (secondDiv) move every second
      timer.addEventListener('secondsUpdated', function() {
-         const time = timer.getTimeValues();
+         const time = timer.getTimeValues(); /* HIT SKALL VI IMPORTA SEKUNDERNA FRÅN setTimer */
          const seconds = time.seconds;
 
          //Every second the hand will rotate
@@ -75,6 +83,13 @@ export function analogWatch() {
         //Every minute the hand will rotate
          minuteDiv.style.transform = `rotate(${6 * minutes}deg)`;
      });
+/*****************TEST, TA BORT SEDAN*********************/
+
+//Collect seconds from setTimer
+
+const testToGetDivFromSetTimer = document.querySelector("#chronoExample > div.valuesContainer > div")
+
+let theValue = testToGetDivFromSetTimer?.innerHTML;
 
     return function stop() {
         timer.stop();
