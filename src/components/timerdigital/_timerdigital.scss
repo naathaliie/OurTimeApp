@@ -29,17 +29,8 @@
     letter-spacing: 10%;
     color: $color-text-primary;
   }
-  .abort-button {
-    color: $color-text-primary;
-    background-color: $color-background-primary;
-    width: 132px;
-    height: 41px;
-    border: 1px solid $color-text-primary;
-    border-radius: 5px;
-    margin-bottom: 60px;
-    padding: 10px;
-    gap: 10px;
-    opacity: 60%;
+  .reset-button {
+    @include button-digital-style;
     &:hover {
       cursor: pointer;
       color: $color-text-secondary;
@@ -47,6 +38,38 @@
     }
     &:active {
       animation: button-move 0.5s;
+    }
+  }
+  .start-button {
+    @include button-digital-style;
+    &:hover {
+      cursor: pointer;
+      color: $color-text-secondary;
+      background-color: $color-button-active;
+    }
+  }
+  .pause-button {
+    @include button-digital-style;
+    &:hover {
+      cursor: pointer;
+      color: $color-text-primary;
+      background-color: $color-button-pause;
+    }
+  }
+
+  .lap-button {
+    @include button-digital-style;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-button-lap;
+    }
+  }
+
+  .laptimerUl {
+    font-size: larger;
+    font-weight: 700;
+    li {
+      list-style: none;
     }
   }
 }

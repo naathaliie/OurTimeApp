@@ -1,6 +1,6 @@
 @keyframes button-move {
   0% {
-    transform: translate(-50px, 0px) rotate(10deg);
+    transform: translate(-50px, 0px) rotate(180deg);
   }
 
   50% {
@@ -8,6 +8,6 @@
   }
 
   100% {
-    transform: translate(0px, 0px) rotate(-10deg);
+    transform: translate(0px, 0px) rotate(-180deg);
   }
 }
