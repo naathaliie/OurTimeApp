@@ -1,4 +1,6 @@
 #timer-digital-section {
+  height: 100%;
+  width: 100%;
   font-family: $font-style-primary;
   background-color: $color-background-primary;
   display: flex;
@@ -11,24 +13,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    div:first-child {
-      width: 32px;
-      height: 32px;
-      position: absolute;
-      left: -32px;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    div:last-child {
-      width: 272px;
-      h1 {
-        text-align: center;
-        width: 279px;
-        color: $color-text-primary;
-        font-weight: 400;
-        font-size: 20px;
-      }
+
+    h1 {
+      text-align: center;
+      width: 279px;
+      color: $color-text-primary;
+      font-weight: 400;
+      font-size: 20px;
     }
   }
   #timer-digital-numbers {
@@ -51,6 +42,11 @@
     opacity: 60%;
     &:hover {
       cursor: pointer;
+      color: $color-text-secondary;
+      background-color: $color-button-stop;
+    }
+    &:active {
+      animation: button-move 0.5s;
     }
   }
 }
