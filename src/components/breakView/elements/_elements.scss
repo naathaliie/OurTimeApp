@@ -1,9 +1,6 @@
 @import '../mixin/mixins';
 @import '../abstract/colors';
 
-body {
-    background-color: black
-}
 
 .breakContainer {
     @include centerCol();

@@ -1,12 +1,13 @@
 import Timer from "easytimer.js";
+import pause from "./img/pause.svg"
 
 export function breakView() {
 
-    const timer = new Timer();
+    const timer: Timer = new Timer();
 
-    const allInfo = document.querySelector('.allInfo');
+    const allInfo: Element | null = document.querySelector('.allInfo');
 
-    const breakContainer = document.createElement('div');
+    const breakContainer: HTMLDivElement = document.createElement('div');
     breakContainer.setAttribute('class', 'breakContainer');
     allInfo?.appendChild(breakContainer);
 
@@ -15,7 +16,7 @@ export function breakView() {
     breakContainer.appendChild(pauseContainer);
 
     const pauseLogo: HTMLImageElement = document.createElement("img");
-    pauseLogo.src = "../components/breakview/img/pause.svg"
+    pauseLogo.src = pause;
     pauseLogo.setAttribute("class", "pause-logo");
     pauseContainer.appendChild(pauseLogo);
 
@@ -27,7 +28,7 @@ export function breakView() {
     timer.start({ countdown: true, startValues: { minutes: 1 } });
 
     if (breakContainer) {
-        const timerElement = document.createElement('div');
+        const timerElement: HTMLDivElement = document.createElement('div');
         timerElement.setAttribute('class', 'timer');
 
         breakContainer.appendChild(timerElement);
