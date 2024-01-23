@@ -1,8 +1,11 @@
 @import "./abstracts/colors";
 @import "./abstracts/fonts";
+@import "./keyframes/keyframes";
 @import "../components/timerdigital/timerdigital";
 @import "../components/hamburgerMenu/hamburger.scss";
 @import "../components/set-timer/setTimer.scss";
+@import "../components/timerAnalog/timerAnalogStyle.scss";
+@import "../components/alarmview/alarmview.scss";
 
 body {
   display: grid;
@@ -25,11 +28,59 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50vw;
-  height: 50vh;
+  width: 90vw;
+  height: 90vh;
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .mainBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .allInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .mainBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .allInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 1024px) {
   body {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, auto);

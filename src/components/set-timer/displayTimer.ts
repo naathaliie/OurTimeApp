@@ -23,7 +23,7 @@ export const createTimer = (timer: Timer, countdownTime: CountdownTime) => {
   increaseButton.addEventListener("click", function () {
     countdownTime.setTime += 10;
     countdownTime.seconds = countdownTime.setTime;
-    document.querySelector("#chronoExample .values")!.textContent =
+    document.querySelector("#setTimerWrapper .values")!.textContent =
       "00:00:" + countdownTime.seconds;
   });
   valuesContainer.appendChild(increaseButton);
@@ -31,12 +31,12 @@ export const createTimer = (timer: Timer, countdownTime: CountdownTime) => {
   decreaseButton.addEventListener("click", function () {
     countdownTime.setTime = Math.max(0, countdownTime.setTime - 10);
     countdownTime.seconds = countdownTime.setTime;
-    document.querySelector("#chronoExample .values")!.textContent =
+    document.querySelector("#setTimerWrapper .values")!.textContent =
       "00:00:" + countdownTime.seconds;
   });
 
   timer.addEventListener("secondsUpdated", function () {
-    document.querySelector("#chronoExample .values")!.innerHTML = timer
+    document.querySelector("#setTimerWrapper .values")!.innerHTML = timer
       .getTimeValues()
       .toString();
   });
