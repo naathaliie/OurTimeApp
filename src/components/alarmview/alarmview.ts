@@ -1,9 +1,19 @@
+import alarm from "./img/alarm.svg"
+
 export function timesUp() {
     const app: HTMLDivElement | null = document.querySelector(".allInfo");
 
+    const alarmViewWrapper = document.createElement("div");
+    alarmViewWrapper.setAttribute('class', 'alarm-view-wrapper');
+    app?.appendChild(alarmViewWrapper);
+
+    const alarmViewInnerWrapper = document.createElement("div");
+    alarmViewInnerWrapper.setAttribute('class', 'alarm-view-inner-wrapper');
+    alarmViewWrapper.appendChild(alarmViewInnerWrapper);
+
     const alarmView = document.createElement("div");
     alarmView.setAttribute('class', 'alarm-view');
-    app?.appendChild(alarmView);
+    alarmViewInnerWrapper.appendChild(alarmView);
 
 
     const clockContainer: HTMLDivElement = document.createElement("div");
@@ -11,7 +21,7 @@ export function timesUp() {
     alarmView.appendChild(clockContainer);
 
     const clockLogo: HTMLImageElement = document.createElement("img");
-    clockLogo.src = "../components/alarview/img/alarm.svg";
+    clockLogo.src = alarm;
     clockLogo.setAttribute("class", "clock-logo");
     clockContainer.appendChild(clockLogo);
 
@@ -25,8 +35,18 @@ export function timesUp() {
     newTimer.setAttribute("class", "new-timer");
     alarmView.appendChild(newTimer);
 
-    newTimer.addEventListener("click", () => {
-        console.log("knappen trycktes");
-        // återgå till setTimer här
-    });
+    if (alarmViewWrapper) {
+        alarmViewWrapper.style.display = 'block';
+        alarmViewWrapper.classList.add('full-screen');
+
+        newTimer.addEventListener("click", () => {
+            console.log("knappen trycktes");
+            // återgå till setTimer här
+
+            alarmViewWrapper.style.display = 'none';
+            alarmViewWrapper.remove();
+        });
+
+    }
 };
+
