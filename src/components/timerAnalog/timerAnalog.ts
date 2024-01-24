@@ -34,9 +34,17 @@ export function analogWatch(input:Number) {
 
     //The button
     const analogButton : HTMLButtonElement = document.createElement('button');
-    analogButton.innerHTML = "hej";
+    analogButton.innerHTML = "ABORT TIMER";
     analogButton.classList.add('analogButton');
     watchWrapper.appendChild(analogButton);
+
+    //When button get´s clicked...
+    analogButton.addEventListener('click', () => {
+        timer.reset();
+        //Is needed to put the secondHand back in place, otherwise it gets off set
+       secondDiv.style.transform = `rotate(-0deg)`;
+       secondDiv.style.transform = `translate(-50%)`;
+    });
 
 
     //Create the minute-hand and the second-hand. Add class and append as child to the watchDiv created above.
@@ -75,7 +83,7 @@ export function analogWatch(input:Number) {
 
      // Makes the second-hand (secondDiv) move every second
      timer.addEventListener('secondsUpdated', function() {
-         const time = timer.getTimeValues(); /* HIT SKALL VI IMPORTA SEKUNDERNA FRÅN setTimer */
+         const time = timer.getTimeValues(); 
          const seconds = time.seconds;
 
          //Every second the hand will rotate
@@ -90,18 +98,12 @@ export function analogWatch(input:Number) {
         //Every minute the hand will rotate
          minuteDiv.style.transform = `rotate(${6 * minutes}deg)`;
      });
-/*****************TEST, TA BORT SEDAN*********************/
 
-//Collect seconds from setTimer
-
-const testToGetDivFromSetTimer = document.querySelector("#chronoExample > div.valuesContainer > div")
-
-let theValue = testToGetDivFromSetTimer?.innerHTML;
-
+    
     return function stop() {
         timer.stop();
     
-        watchDiv!.remove();
+        watchWrapper!.remove();
       };
 };
 
