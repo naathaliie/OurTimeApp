@@ -32,6 +32,13 @@ export function analogWatch(input:Number) {
     watchDiv.classList.add("watch");
     watchWrapper.appendChild(watchDiv);
 
+    //The button
+    const analogButton : HTMLButtonElement = document.createElement('button');
+    analogButton.innerHTML = "hej";
+    analogButton.classList.add('analogButton');
+    watchWrapper.appendChild(analogButton);
+
+
     //Create the minute-hand and the second-hand. Add class and append as child to the watchDiv created above.
     const minuteDiv : HTMLDivElement = document.createElement("div");
     minuteDiv.classList.add("hand", "minute");
