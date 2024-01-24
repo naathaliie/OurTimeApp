@@ -1,13 +1,9 @@
 //Imports the easytimer so we can use it
 import Timer from "easytimer.js";
-//Imports everything from setTimer
-import { setTimer } from "../set-timer/setTimer"; 
-
-
 
 
 //export is needed so you can export the function to main.ts
-export function analogWatch(input:Number) {
+export function analogWatch() {
     //A new instance of Timer
     let timer : Timer = new Timer();
     
