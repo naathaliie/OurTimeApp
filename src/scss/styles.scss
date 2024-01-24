@@ -5,8 +5,8 @@
 @import "../components/hamburgerMenu/hamburger.scss";
 @import "../components/set-timer/setTimer.scss";
 @import "../components/timerAnalog/timerAnalogStyle.scss";
+@import "../components/timerAnalog/buttons.scss";
 @import "../components/alarmview/alarmview.scss";
-
 body {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

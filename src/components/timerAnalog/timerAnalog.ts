@@ -27,6 +27,19 @@ export function analogWatch() {
   watchDiv.classList.add("watch");
   watchWrapper.appendChild(watchDiv);
 
+  //The button
+  const analogButton: HTMLButtonElement = document.createElement("button");
+  analogButton.innerHTML = "ABORT TIMER";
+  analogButton.classList.add("analogButton");
+  watchWrapper.appendChild(analogButton);
+
+  //When button get´s clicked...
+  analogButton.addEventListener("click", () => {
+    timer.reset();
+    //Is needed to put the secondHand back in place, otherwise it gets off set
+    secondDiv.style.transform = `rotate(-0deg)`;
+    secondDiv.style.transform = `translate(-50%)`;
+  });
   //Create the minute-hand and the second-hand. Add class and append as child to the watchDiv created above.
   const minuteDiv: HTMLDivElement = document.createElement("div");
   minuteDiv.classList.add("hand", "minute");
@@ -84,5 +97,6 @@ export function analogWatch() {
     timer.stop();
 
     watchDiv!.remove();
+    analogButton!.remove();
   };
 }
