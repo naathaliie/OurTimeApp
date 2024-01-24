@@ -1,0 +1,17 @@
+@mixin button-digital-style {
+  color: $color-text-primary;
+  background-color: $color-background-primary;
+  width: 132px;
+  height: 41px;
+  border: 1px solid $color-text-primary;
+  border-radius: 5px;
+  margin-bottom: 60px;
+  padding: 10px;
+  gap: 10px;
+  opacity: 60%;
+  &:hover {
+    cursor: pointer;
+    color: $color-text-secondary;
+    background-color: $color-button-hover;
+  }
+}
