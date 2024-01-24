@@ -1,10 +1,20 @@
 import Timer from "easytimer.js";
 import { CountdownTime } from "./setTimer";
 
+function formatTime(countdownTime: CountdownTime) {
+  let s = countdownTime.seconds % 60;
+  let m = Math.floor(countdownTime.seconds / 60);
+  let h = Math.floor(countdownTime.seconds / 3600);
+  let fs = s < 10 ? "0" + s : s;
+  let fm = m < 10 ? "0" + m : m;
+  let fh = h < 10 ? "0" + h : h;
+  return `${fh}:${fm}:${fs}`;
+}
+
 export const createTimer = (timer: Timer, countdownTime: CountdownTime) => {
   let values = document.createElement("div");
   values.className = "values";
-  values.textContent = "00:00:30"; // initial countdown time
+  values.textContent = formatTime(countdownTime);
 
   let valuesContainer = document.createElement("div");
   valuesContainer.className = "valuesContainer";
@@ -24,7 +34,7 @@ export const createTimer = (timer: Timer, countdownTime: CountdownTime) => {
     countdownTime.setTime += 10;
     countdownTime.seconds = countdownTime.setTime;
     document.querySelector("#setTimerWrapper .values")!.textContent =
-      "00:00:" + countdownTime.seconds;
+      formatTime(countdownTime);
   });
   valuesContainer.appendChild(increaseButton);
 
@@ -32,7 +42,7 @@ export const createTimer = (timer: Timer, countdownTime: CountdownTime) => {
     countdownTime.setTime = Math.max(0, countdownTime.setTime - 10);
     countdownTime.seconds = countdownTime.setTime;
     document.querySelector("#setTimerWrapper .values")!.textContent =
-      "00:00:" + countdownTime.seconds;
+      formatTime(countdownTime);
   });
 
   timer.addEventListener("secondsUpdated", function () {
