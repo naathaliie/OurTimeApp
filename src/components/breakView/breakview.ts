@@ -1,21 +1,30 @@
 import Timer from "easytimer.js";
+import pause from "./img/pause.svg";
 
 export function breakView() {
 
     const timer = new Timer();
 
-    const allInfo = document.querySelector('.allInfo');
+    const allInfo: Element | null = document.querySelector('.allInfo');
 
-    const breakContainer = document.createElement('div');
+    const outerWrapper: HTMLDivElement = document.createElement("div");
+    outerWrapper.setAttribute('class', 'outer-wrapper');
+    allInfo?.appendChild(outerWrapper);
+
+    const innerWrapper: HTMLDivElement = document.createElement("div");
+    outerWrapper.setAttribute('class', 'inner-wrapper');
+    outerWrapper.appendChild(innerWrapper);
+
+    const breakContainer: HTMLDivElement = document.createElement('div');
     breakContainer.setAttribute('class', 'breakContainer');
-    allInfo?.appendChild(breakContainer);
+    innerWrapper.appendChild(breakContainer);
 
     const pauseContainer: HTMLDivElement = document.createElement("div");
     pauseContainer.setAttribute("class", "pause-container");
     breakContainer.appendChild(pauseContainer);
 
     const pauseLogo: HTMLImageElement = document.createElement("img");
-    pauseLogo.src = "../components/breakview/img/pause.svg"
+    pauseLogo.src = pause;
     pauseLogo.setAttribute("class", "pause-logo");
     pauseContainer.appendChild(pauseLogo);
 
@@ -24,9 +33,18 @@ export function breakView() {
     breakText.innerText = "Pause & breath"
     breakContainer.appendChild(breakText);
 
-    timer.start({ countdown: true, startValues: { minutes: 1 } });
+    const pauseTimer: HTMLButtonElement = document.createElement("button");
+    pauseTimer.textContent = "NO PAUSE, GO NOW!";
+    pauseTimer.setAttribute("class", "pause-timer");
+    breakContainer.appendChild(pauseTimer);
 
-    if (breakContainer) {
+    if (outerWrapper) {
+
+        timer.start({ countdown: true, startValues: { minutes: 1 } });
+
+        outerWrapper.style.display = 'block';
+        outerWrapper.classList.add('full-screen');
+
         const timerElement = document.createElement('div');
         timerElement.setAttribute('class', 'timer');
 
@@ -42,18 +60,21 @@ export function breakView() {
         timer.addEventListener('targetAchieved', function () {
             // Gå tillbaka till föregående timer när tiden står når 0
             timerElement.innerHTML = 'Nedräkningen är klar!';
+
+            outerWrapper.style.display = 'none';
+            outerWrapper.remove();
+        });
+
+        pauseTimer.addEventListener("click", () => {
+            console.log("knappen trycktes");
+            // Avbryt pausen och återgå till föregående timer här
+            timer.stop();
+            outerWrapper.style.display = 'none';
+            outerWrapper.remove();
+
         });
     }
 
-    const pauseTimer: HTMLButtonElement = document.createElement("button");
-    pauseTimer.textContent = "NO PAUSE, GO NOW!";
-    pauseTimer.setAttribute("class", "pause-timer");
-    breakContainer.appendChild(pauseTimer);
 
-    pauseTimer.addEventListener("click", () => {
-        console.log("knappen trycktes");
-        // Avbryt pausen och återgå till föregående timer här
-        timer.stop();
 
-    });
 };

@@ -1,49 +1,62 @@
 @import '../mixin/mixins';
 @import '../abstract/colors';
 
-body {
-    background-color: black
-}
 
-.breakContainer {
-    @include centerCol();
+.outer-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 999;
 
-    .pause-container {
-        @include centerEl();
-        background-color: $alarm-ellipse-1;
-        width: 9rem;
-        height: 9rem;
-        border-radius: 50%;
-        box-shadow: 0 0 0 1.6rem $alarm-ellipse-2, 0 0 0 3.5rem $alarm-ellipse-3-4, 0 0 0 6rem $alarm-ellipse-3-4;
+    .inner-wrapper {
+        @include centerCol();
+        height: 100vh;
 
-    }
+        .breakContainer {
+            @include centerCol();
 
-    .break-text {
-        margin: 0;
-        color: rgb(88, 88, 88);
-        font-size: 2rem;
-        letter-spacing: .2rem;
-    }
+            .pause-container {
+                @include centerEl();
+                background-color: $alarm-ellipse-1;
+                width: 9rem;
+                height: 9rem;
+                border-radius: 50%;
+                box-shadow: 0 0 0 1.6rem $alarm-ellipse-2, 0 0 0 3.5rem $alarm-ellipse-3-4, 0 0 0 6rem $alarm-ellipse-3-4;
 
-    .timer {
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 10px;
-        color: rgb(88, 88, 88);
-    }
+            }
 
-    .pause-timer {
-        color: #ffffff6c;
-        margin-top: 3rem;
-        border-radius: 0.3125rem;
-        background-color: transparent;
-        border: 1px solid #ffffff6c;
-        padding: 0.625rem;
+            .break-text {
+                margin: 0;
+                color: rgb(88, 88, 88);
+                font-size: 2rem;
+                letter-spacing: .2rem;
+            }
 
-        &:hover {
-            background-color: black;
-            color: $text-color;
-            border: 1px solid black;
+            .timer {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 10px;
+                color: rgb(88, 88, 88);
+            }
+
+            .pause-timer {
+                color: #ffffff6c;
+                margin-top: 3rem;
+                border-radius: 0.3125rem;
+                background-color: transparent;
+                border: 1px solid #ffffff6c;
+                padding: 0.625rem;
+
+                &:hover {
+                    background-color: black;
+                    color: $text-color;
+                    border: 1px solid black;
+                }
+            }
         }
     }
 }
