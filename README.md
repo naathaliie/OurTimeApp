@@ -1,7 +1,7 @@
 # OurTimeApp
 A school project created by Lars, Luka, Nathalie and Philip.
 
-Link to Trello, this is where we planed, distributed the work, and could easely follow the work progress.-> <a href="https://trello.com/b/HIuBB0vd/the-poop-scientists">Trello</a>
+We used Trello to plan and distribute the work. Here we could easely follow the work progress.-> <a href="https://trello.com/b/HIuBB0vd/the-poop-scientists">Trello</a>
  
 In this SPA (Single Page Application) the user can set a timer and add the options "Interval" and "Sleep 5 min".
 It has six views:
