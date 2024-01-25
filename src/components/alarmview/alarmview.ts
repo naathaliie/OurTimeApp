@@ -20,17 +20,13 @@ export function timesUp() {
   alarmView.appendChild(clockContainer);
 
   const clockLogo: HTMLImageElement = document.createElement("img");
-  clockLogo.src = "../components/alarview/img/alarm.svg";
   clockLogo.setAttribute("class", "clock-logo");
-  clockContainer.appendChild(clockLogo);
-
   clockLogo.src = alarm;
   clockContainer.appendChild(clockLogo);
 
   const newTimer: HTMLButtonElement = document.createElement("button");
   newTimer.textContent = "SET NEW TIMER";
   newTimer.setAttribute("class", "new-timer");
-  alarmView.appendChild(newTimer);
   alarmView.appendChild(newTimer);
 
   if (alarmViewWrapper) {

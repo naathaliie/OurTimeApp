@@ -96,7 +96,6 @@ export function analogWatch() {
   return function stop() {
     timer.stop();
 
-    watchDiv!.remove();
-    analogButton!.remove();
+    watchWrapper!.remove();
   };
 }
