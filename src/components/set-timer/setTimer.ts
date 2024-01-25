@@ -3,6 +3,7 @@ import { createStartButton } from "./StartStopButton";
 import { createTimer } from "./displayTimer";
 import { createCheckboxes } from "./checkboxes";
 import { timesUp } from "../alarmview/alarmview";
+import { breakView } from "../breakView/breakview";
 export interface CountdownTime {
   seconds: number;
   setTime: number;
@@ -19,8 +20,6 @@ export function setTimer() {
   }
 
   let timer = new Timer();
-
-  // Initialize the countdown time
 
   // Create the HTML elements
   let setTimerWrapper = document.createElement("div");
@@ -40,12 +39,14 @@ export function setTimer() {
   allInfo.appendChild(setTimerWrapper);
 
   timer.addEventListener("targetAchieved", function () {
-    timesUp();
-    // let iframe = document.createElement("iframe");
-    // iframe.src = "https://www.youtube.com/embed/rUkzZTGE6jI?autoplay=1";
-    // iframe.allow = "autoplay";
-
+    if (!checkBoxInterval.checked && !checkBoxSleep.checked) {
+      timesUp();
+    }
     countdownTime.seconds = countdownTime.setTime;
+
+    if (checkBoxSleep.checked) {
+      breakView();
+    }
 
     if (checkBoxInterval.checked == true || checkBoxSleep.checked == true) {
       if (checkBoxSleep.checked == true) {
