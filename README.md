@@ -1,4 +1,6 @@
 # OurTimeApp
-A school project created by Filip, Lars, Luka and Nathalie.
+A school project created by Lars, Luka, Nathalie and Philip.
 
-To structureLink to Trello -> https://trello.com/b/HIuBB0vd/the-poop-scientists
+The link to Trello -> <a href="https://trello.com/b/HIuBB0vd/the-poop-scientists">Trello</a>
+ 
+
