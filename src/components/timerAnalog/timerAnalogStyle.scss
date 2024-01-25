@@ -1,0 +1,91 @@
+@import './buttons';
+
+
+//normalize
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+
+.watchWrapper{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 9em;
+ 
+
+    .watch{
+        width: 40em;
+        height: 40em;
+        background-color: $color-digitalWatch-background;
+        border-radius: 50%;
+        border: 4px solid $color-digitalWatch-border;
+        position: relative;//Is needed to set the position:absolut on .secondLines.
+        
+        .hand{
+            position: absolute;//Is needed to place tha hand above the watch, the default would be beside the whole watch-element and the secondLines would be "pushed" down.
+            background-color: rgba(243, 236, 236, 0.36);
+            bottom:50%;
+            left: 50%;
+            transform: translate(-50%);//For the centering to be "100%", Transform: translate with -50% makes you "move back" 50% of what you've adjusted with the left: 50%.
+            transform-origin: bottom;//Decides the origin point for rotation; the default is the center, but this makes it from the bottom.
+
+        }
+
+        .minute{
+            width: 3%;
+            height: 30%;
+            border-radius: 30px 30px 0px 0px;
+        }
+            
+        .second{
+            width: 3%;
+            height: 45%;
+            border-radius: 30px 30px 0px 0px;
+        }
+        
+        .handPatch{
+            position: absolute;
+            background-color: $color-digitalWatch-handpatch;
+            z-index: 11;
+            width: 10%;
+            height: 10%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        
+
+        .secondLines{ 
+            /* An element with position: absolute; is positioned relative to its nearest positioned ancestor.
+            Makes every secondLine group togehter */           
+            position: absolute;  
+            /* Set the width and height to simplify placing the numbers in a circle around the clock.
+            You can remove the background color; it is only for visualizing the available space. */  
+            width: 100%;
+            height: 100%;
+            /* background-color: hotpink; */
+            text-align: center;//Centers the text (| is a string so it counts as text)
+            color: $color-digitalWatch-secondLines;
+        }    
+    }
+
+    .analogButton {
+       @include analogButton();
+       &:hover {
+        cursor: pointer;
+        background-color: $color-button-primary;
+        color: $color-background-primary;
+        opacity: 100%;
+        }
+    }
+}
+
+
+
+   

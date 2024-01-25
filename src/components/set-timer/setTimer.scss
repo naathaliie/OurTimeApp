@@ -1,0 +1,95 @@
+#setTimerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-style-primary;
+
+  .valuesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .values {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3em;
+      margin: 2rem 0;
+      color: $color-text-primary;
+    }
+
+    .increaseButton {
+      transition: background-color 0.3s ease-in-out;
+      font-size: 3rem;
+      font-family: $font-style-primary;
+
+      &:hover {
+        background-color: $color-button-hover;
+      }
+    }
+    .decreaseButton {
+      transition: background-color 0.3s ease-in-out;
+      font-size: 3rem;
+      font-family: $font-style-primary;
+
+      &:hover {
+        background-color: $color-button-hover;
+      }
+    }
+  }
+
+  .startStopButton,
+  .stopButton {
+    border: none;
+    color: $color-background-primary;
+    padding: 1rem 3rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #000000;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $color-button-active;
+    }
+  }
+}
+.checkBoxContainer {
+  display: block;
+
+  .checkBoxWrapper {
+    display: flex;
+
+    input {
+      margin-right: 1rem;
+    }
+    label {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #setTimerWrapper {
+    .valuesContainer {
+      .values {
+        font-size: 5em;
+      }
+      .increaseButton {
+        font-size: 5rem;
+      }
+      .decreaseButton {
+        font-size: 5rem;
+      }
+    }
+    .startStopButton,
+    .stopButton {
+      font-size: 2rem;
+      padding: 1.5rem 2rem;
+    }
+  }
+}

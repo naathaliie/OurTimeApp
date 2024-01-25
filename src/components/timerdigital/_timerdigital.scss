@@ -1,0 +1,75 @@
+#timer-digital-section {
+  height: 100%;
+  width: 100%;
+  font-family: $font-style-primary;
+  background-color: $color-background-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  #timer-digital-header {
+    position: relative;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h1 {
+      text-align: center;
+      width: 279px;
+      color: $color-text-primary;
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+  #timer-digital-numbers {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 103.52px;
+    letter-spacing: 10%;
+    color: $color-text-primary;
+  }
+  .reset-button {
+    @include button-digital-style;
+    &:hover {
+      cursor: pointer;
+      color: $color-text-secondary;
+      background-color: $color-button-stop;
+    }
+    &:active {
+      animation: button-move 0.5s;
+    }
+  }
+  .start-button {
+    @include button-digital-style;
+    &:hover {
+      cursor: pointer;
+      color: $color-text-secondary;
+      background-color: $color-button-active;
+    }
+  }
+  .pause-button {
+    @include button-digital-style;
+    &:hover {
+      cursor: pointer;
+      color: $color-text-primary;
+      background-color: $color-button-pause;
+    }
+  }
+
+  .lap-button {
+    @include button-digital-style;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-button-lap;
+    }
+  }
+
+  .laptimerUl {
+    font-size: larger;
+    font-weight: 700;
+    li {
+      list-style: none;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@mixin centerEl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin centerCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alarm-view-wrapper {
+    /* @include centerCol(); */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $alarm-primary-background;
+    /* background-color: rgb(0, 0, 0); */
+    /*     color: white; */
+    z-index: 999;
+    /* Se till att alarmView ligger över resten av sidan */
+
+    .alarm-view-inner-wrapper {
+        @include centerCol();
+        height: 100vh;
+
+        .alarm-view {
+            @include centerCol();
+
+            .clock-container {
+                @include centerEl();
+                background-color: $alarm-ellipse-1;
+                width: 9rem;
+                height: 9rem;
+                border-radius: 50%;
+                box-shadow: 0 0 0 1.6rem $alarm-ellipse-2, 0 0 0 3.5rem $alarm-ellipse-3-4, 0 0 0 6rem $alarm-ellipse-3-4;
+            }
+
+            p.clock-text {
+                font-size: 2.5rem;
+                color: $color-text-secondary;
+            }
+
+            .new-timer {
+                color: #ffffff6c;
+                margin-top: 3rem;
+                border-radius: 0.3125rem;
+                background-color: transparent;
+                border: 1px solid #ffffff6c;
+                padding: 0.625rem;
+
+                &:hover {
+                    background-color: $color-button-primary;
+                    color: $color-text-secondary;
+                    border: 1px solid $color-button-primary;
+                }
+            }
+        }
+    }
+}

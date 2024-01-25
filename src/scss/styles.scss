@@ -1,0 +1,86 @@
+@import "./abstracts/colors";
+@import "./abstracts/fonts";
+@import "./keyframes/keyframes";
+@import "./mixins";
+@import "../components/loadingscreen/loadingscreen.scss";
+@import "../components/timerdigital/timerdigital";
+@import "../components/hamburgerMenu/hamburger.scss";
+@import "../components/set-timer/setTimer.scss";
+@import "../components/timerAnalog/timerAnalogStyle.scss";
+@import "../components/timerAnalog/buttons.scss";
+@import "../components/alarmview/alarmabstracts/mixins.scss";
+@import "../components/breakView/elements/elements.scss";
+
+body {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.mainBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.allInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 90vh;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .mainBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .allInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .mainBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .allInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+  }
+}
